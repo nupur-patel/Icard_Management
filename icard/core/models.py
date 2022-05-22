@@ -6,7 +6,6 @@ from phonenumber_field.modelfields import PhoneNumberField
 class College(models.Model):
 	college_name = models.CharField(max_length = 200)
 	color = models.CharField(max_length = 7)  # Hex value can be only 6 digit
-
 	def __str__(self):
 		return self.college_name
 
