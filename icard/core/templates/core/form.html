@@ -1,0 +1,56 @@
+<h3>Registration Form</h3>
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	<div class="mb-3">
+		<label class="form-label">First_Name</label>
+		<input type="text" class="form-control" placeholder="Enter Your First Name" name="firstname">
+  	</div>
+  	<div class="mb-3">
+		<label class="form-label">Last_Name</label>
+		<input type="text" class="form-control" placeholder="Enter Your Last Name" name="lastname">
+  	</div>
+  	<div class="mb-3">
+		<label class="form-label">Address</label>
+		<textarea class="form-control" name="address" rows="3"></textarea>
+ 	</div>
+  	<div class="mb-3">
+		<label class="form-label">Phone_Number</label>
+		<input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" placeholder="e.g. 123-123-1234" name="phone">
+  	</div>
+  	<div class="mb-3">
+		<label class="form-label">Date_Of_Birth</label>
+		<input type="date" class="form-control"  name="dateofbirth">
+  	</div>
+  	<div class="mb-3">
+  		<label class="form-label">Select Your Branch</label>
+		<select class="form-select" name="branch">
+			<option selected></option>
+			<option value="computer">Computer</option>
+			<option value="civil">Civil</option>
+			<option value="electrical">Electrical</option>
+			<option value="mechanical">Mechanical</option>
+		</select>
+  	</div>
+  	<div class="mb-3">
+  		<label class="form-label">Select Your College</label>
+  		
+		<select class="form-select" name="college">
+			<option selected></option>
+			{% for i in colleges %}
+			<option value="{{ i.id }}">{{ i.college_name }}</option>
+			{% endfor %}
+		</select>
+	
+  	</div>
+  	<div class="mb-3">
+  		<label>Enter Your Batch Year</label>
+  		<input type="number" min="2015" max="2022" step="1" name="year">
+  	</div>
+
+  	<div class="mb-3">
+		<label class="form-label">Upload Photo</label>
+		<input class="form-control" type="file" name="photo">
+	</div>
+	<button type="submit" class="btn btn-primary">Register</button>
+
+</form>
